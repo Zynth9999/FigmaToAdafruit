@@ -22,11 +22,11 @@
 | LVGL | No plans for support❌  |
 | Other libraries | Not supported❌  |
 
-### TFT_eSPI:
+### [TFT_eSPI](https://github.com/Bodmer/TFT_eSPI):
 The library is very similar to AdafruitGFX, that's why i said its Mostly supported.
 If there are any problems please HMU on discord or join the [ZynthWare server](https://discord.gg/DPWY2jWeHR).
 
-### bb_spi_lcd:
+### [bb_spi_lcd](https://github.com/bitbank2/bb_spi_lcd):
 Same as TFT_eSPI, it doesn't support rounded corners yet!
 
 If you would like for me to try and add support to other libraries HMU on discord or join the [ZynthWare server](https://discord.gg/DPWY2jWeHR)!
