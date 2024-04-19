@@ -9,6 +9,7 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
+            background-color: #f4f4f4;
         }
 
         header {
@@ -16,6 +17,7 @@
             color: #fff;
             padding: 20px;
             text-align: center;
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
         }
 
         main {
@@ -24,6 +26,10 @@
 
         #about {
             margin-bottom: 20px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
         }
 
         footer {
@@ -35,6 +41,37 @@
             bottom: 0;
             left: 0;
             width: 100%;
+        }
+
+        button {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .latest-commit {
+            margin-top: 20px;
+        }
+
+        .discord-link {
+            display: block;
+            margin-top: 20px;
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .discord-link:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
@@ -48,7 +85,14 @@
         <section id="about">
             <h2>About FigmaToGFX</h2>
             <p>FigmaToGFX is a tool created by zynth for converting Figma objects into code compatible with TFT_eSPI bb_spi_lcd or AdafruitGFX with touch support.</p>
-            <p>For more information and to access the code, visit the <a href="https://github.com/Zynth9999/FigmaToGFX/tree/main">GitHub repository</a>.</p>
+            <button onclick="window.location.href='https://github.com/Zynth9999/FigmaToGFX/tree/main'">Check it out!</button>
+            <div class="latest-commit">
+                <h3>Latest Commit</h3>
+                <p>SHA: <strong>abcdef123456</strong></p>
+                <p>Date: <strong>April 19, 2024</strong></p>
+                <p>Message: <strong>Added support for touch gestures</strong></p>
+            </div>
+            <a href="https://discord.gg/DPWY2jWeHR" class="discord-link">Join our Discord server at zynthware</a>
         </section>
     </main>
 
