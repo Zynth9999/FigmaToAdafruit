@@ -3,6 +3,7 @@
 ## Before you make a ton of issues check this out:
 [How to install](installation.md)
 
+
 ## List of features:
 ### -Turn objects into code obviously.
 ### - Turn the object into a touchable button!
@@ -22,9 +23,9 @@
 
 ### TFT_eSPI:
 The library is very similar to AdafruitGFX, that's why i said its Mostly supported.
-If there are any problems please HMU on discord or join the ZynthWare server.
+If there are any problems please HMU on discord or join the [ZynthWare server](https://discord.gg/DPWY2jWeHR).
 
-If you would like for me to try and add support to other libraries HMU on discord or join the ZynthWare server!
+If you would like for me to try and add support to other libraries HMU on discord or join the [ZynthWare server](https://discord.gg/DPWY2jWeHR)!
 
 # Object support:
 | Type  | Support |
