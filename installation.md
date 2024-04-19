@@ -1,4 +1,5 @@
 # HOW TO INSTALL THE PLUGIN 
+<style>h1,h2,h3,h4 { border-bottom: 0; } </style>
 ## There are 2 ways:
 ### - Get it from the Figma Community Plugin section (SOON!)
 ### - Put it in the figma directory
