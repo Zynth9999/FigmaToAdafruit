@@ -12,6 +12,7 @@
 | TFT_eSPI  | Mostly-supported ✅  |
 | AdafruitGFX | Supported ✅  |
 | bb_spi_lcd | Semi-supported  |
+| LVGL | No plans for support❌  |
 | Other libraries | Not supported❌  |
 
 ### TFT_eSPI:
