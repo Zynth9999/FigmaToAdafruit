@@ -84,18 +84,18 @@
     <main>
         <section id="about">
             <h2>About FigmaToGFX</h2>
-            <p>FigmaToGFX is a tool created by zynth for converting Figma objects into code compatible with TFT_eSPI bb_spi_lcd or AdafruitGFX with touch support.</p>
+            <p>FigmaToGFX is a tool created by ZynthRodak for converting Figma objects into code compatible with TFT_eSPI bb_spi_lcd or AdafruitGFX with touch support.</p>
             <button onclick="window.location.href='https://github.com/Zynth9999/FigmaToGFX/tree/main'">Check it out!</button>
             <div class="latest-commit" id="latest-commit">
                 <h3>Latest Commit</h3>
                 <p>Loading...</p>
             </div>
-            <a href="https://discord.gg/DPWY2jWeHR" class="discord-link">Join our Discord server at zynthware</a>
+            <a href="https://discord.gg/DPWY2jWeHR" class="discord-link">Join our Discord server at ZynthWare!</a>
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2024 FigmaToGFX | Created by zynth</p>
+        <p>&copy; 2024 FigmaToGFX | Created by ZynthRodak</p>
     </footer>
 
     <script>
@@ -106,7 +106,8 @@
                 const commitInfo = {
                     sha: latestCommit.sha,
                     date: new Date(latestCommit.commit.author.date).toDateString(),
-                    message: latestCommit.commit.message
+                    message: latestCommit.commit.message,
+                    author: latestCommit.commit.author.name
                 };
 
                 const latestCommitElement = document.getElementById('latest-commit');
@@ -115,6 +116,7 @@
                     <p>SHA: <strong>${commitInfo.sha}</strong></p>
                     <p>Date: <strong>${commitInfo.date}</strong></p>
                     <p>Message: <strong>${commitInfo.message}</strong></p>
+                    <p>Author: <strong>${commitInfo.author}</strong></p>
                 `;
             })
             .catch(error => {
