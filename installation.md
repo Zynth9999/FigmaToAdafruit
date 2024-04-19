@@ -2,6 +2,13 @@
 ## There are 2 ways:
 ### - Get it from the Figma Community Plugin section (SOON!)
 ### - Put it in the figma directory
+# WHAT YOU NEED TO MAKE IT WORK:
+## LATEST RELEASE OF FTGTOOLS 
+[FTGTOOLS](https://github.com/Zynth9999/FigmaToGFX/releases/download/v1.1.6/ftgtools.h)
+## YOUR TOUCH VARIABLES TO BE CALLED TX AND TY FOR X AND Y
+## YOUR DISPLAY INSTANCE TO BE CALLED TFT, NOT LCD< NOT DISPLAY
+
+## YOURE ALL SET! PICK YOUR PATH \/
 
 # Way 1
 
