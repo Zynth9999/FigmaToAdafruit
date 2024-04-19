@@ -29,7 +29,7 @@
 ### Reload Figma
 ###### STOP 5-------------
 # INSTALLING IN YOUR ARDUINO PROJECT:
-### Ge the latest FTGTOOLS
+### Get the latest FTGTOOLS
 [FTGTOOLS](https://github.com/Zynth9999/FigmaToGFX/releases/download/v1.1.6/ftgtools.h)
 ### throw it in the same folder as your Arduino script
 ### Compile and enjoy!
