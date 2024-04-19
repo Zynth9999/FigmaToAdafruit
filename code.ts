@@ -60,7 +60,7 @@ figma.ui.onmessage = msg => {
           });
         }
 
-        const fontSize = Math.round(Number(selectedNode.fontSize) / 7); // Explicitly cast to number and round
+        const fontSize = Math.round(Number(selectedNode.fontSize) / 14); // Explicitly cast to number and round
         const text = selectedNode.characters;
         const x = selectedNode.x;
         const y = selectedNode.y;
