@@ -11,6 +11,7 @@
 | AdafruitGFX | Supported ✅  |
 | bb_spi_lcd | Semi-supported  |
 | Other libraries | Not supported❌  |
+
 If you would like for me to try and add support to other libraries HMU on discord!
 
 # Object support:
