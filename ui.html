@@ -152,10 +152,10 @@ select {
               formattedCodebit = `tft.fillRect(${message.x}, ${message.y}, ${message.width}, ${message.height}, tft.color565(${Math.round(message.r)}, ${Math.round(message.g)}, ${Math.round(message.b)}));`;
             }
             if(lib === "espi"){
-              formattedCodebit = `tft.filRoundRect(${message.x}, ${message.y}, ${message.width}, ${message.height}, tft.color565(${Math.round(message.r)}, ${Math.round(message.g)}, ${Math.round(message.b)}));`;
+              formattedCodebit = `tft.filRoundRect(${message.x}, ${message.y}, ${message.width}, ${message.height},${message.cornerRadius}, tft.color565(${Math.round(message.r)}, ${Math.round(message.g)}, ${Math.round(message.b)}));`;
             }
             if(lib === "GFX"){
-              formattedCodebit = `tft.fillRoundRect(${message.x}, ${message.y}, ${message.width}, ${message.height},/*Radius*/, tft.color565(${Math.round(message.r)}, ${Math.round(message.g)}, ${Math.round(message.b)}));`;
+              formattedCodebit = `tft.fillRoundRect(${message.x}, ${message.y}, ${message.width}, ${message.height},${message.cornerRadius}, tft.color565(${Math.round(message.r)}, ${Math.round(message.g)}, ${Math.round(message.b)}));`;
             }
             if(lib !== ""){
               whole = whole.concat(formattedCodebit);

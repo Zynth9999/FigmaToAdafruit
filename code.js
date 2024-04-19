@@ -6,9 +6,11 @@ const defaultGreen = 0;
 const defaultBlue = 0;
 // MADE BY ZYNTH WITH <3
 // Reload
+let cornerRadius;
 figma.ui.onmessage = msg => {
     if (msg.type === 'getProperties') {
         const selection = figma.currentPage.selection;
+        const selectedNode = selection[0];
         if (selection.length > 0) {
             const selectedObject = selection[0];
             // Get color properties
@@ -16,6 +18,11 @@ figma.ui.onmessage = msg => {
             let r = defaultRed;
             let g = defaultGreen;
             let b = defaultBlue;
+            if (selectedNode.type === 'RECTANGLE') {
+                // Access the cornerRadius property
+                cornerRadius = selectedNode.cornerRadius;
+                // Now you can work with the cornerRadius
+            }
             if (selectionColors !== null) {
                 const paints = selectionColors.paints;
                 // Iterate over each paint in the selection
@@ -34,7 +41,7 @@ figma.ui.onmessage = msg => {
             const y = selectedObject.y;
             const width = selectedObject.width;
             const height = selectedObject.height;
-            figma.ui.postMessage({ type: 'properties', x, y, width, height, r, g, b, red: defaultRed });
+            figma.ui.postMessage({ type: 'properties', x, y, width, height, r, g, b, cornerRadius });
         }
         else {
             figma.ui.postMessage({ type: 'error', message: 'You need to select an object!' });
