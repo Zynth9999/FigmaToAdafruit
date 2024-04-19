@@ -2,11 +2,11 @@
 ## Before you make a ton of issues check this out:
 [How to install](installation.md)
 ## List of features:
-### -Turn objects into code obviously.
-### - Turn the object into a touchable button!
-### - It automatically adds the color using tft.color565().
-### - Planned support for automatically putting rounded corners in the code it spits out!
-### - Planned theme support (who even uses light theme ?)
+### + Turn objects into code obviously.
+### + Turn the object into a touchable button!
+### + It automatically adds the color using tft.color565().
+### + Planned support for automatically putting rounded corners in the code it spits out!
+### + Planned theme support (who even uses light theme ?)
 
 # Library support:
 | Library  | Support |
