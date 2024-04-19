@@ -6,6 +6,7 @@
 
 ## List of features:
 ### -Turn objects into code obviously.
+### - Supports multiple libraries!
 ### - Turn the object into a touchable button!
 ### - It automatically adds the color using tft.color565().
 ### - Planned support for automatically putting rounded corners in the code it spits out!
@@ -24,6 +25,9 @@
 ### TFT_eSPI:
 The library is very similar to AdafruitGFX, that's why i said its Mostly supported.
 If there are any problems please HMU on discord or join the [ZynthWare server](https://discord.gg/DPWY2jWeHR).
+
+### bb_spi_lcd:
+Same as TFT_eSPI, it doesn't support rounded corners yet!
 
 If you would like for me to try and add support to other libraries HMU on discord or join the [ZynthWare server](https://discord.gg/DPWY2jWeHR)!
 
