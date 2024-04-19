@@ -9,6 +9,7 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
+            background-color: #f4f4f4;
         }
 
         header {
@@ -16,6 +17,7 @@
             color: #fff;
             padding: 20px;
             text-align: center;
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
         }
 
         main {
@@ -24,6 +26,10 @@
 
         #about {
             margin-bottom: 20px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
         }
 
         footer {
@@ -36,6 +42,37 @@
             left: 0;
             width: 100%;
         }
+
+        button {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .latest-commit {
+            margin-top: 20px;
+        }
+
+        .discord-link {
+            display: block;
+            margin-top: 20px;
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .discord-link:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
@@ -47,13 +84,46 @@
     <main>
         <section id="about">
             <h2>About FigmaToGFX</h2>
-            <p>FigmaToGFX is a tool created by zynth for converting Figma objects into code compatible with TFT_eSPI bb_spi_lcd or AdafruitGFX with touch support.</p>
-            <p>For more information and to access the code, visit the <a href="https://github.com/Zynth9999/FigmaToGFX/tree/main">GitHub repository</a>.</p>
+            <p>FigmaToGFX is a tool created by ZynthRodak for converting Figma objects into code compatible with TFT_eSPI bb_spi_lcd or AdafruitGFX with touch support.</p>
+            <button onclick="window.location.href='https://github.com/Zynth9999/FigmaToGFX/tree/main'">Check it out!</button>
+            <div class="latest-commit" id="latest-commit">
+                <h3>Latest Commit</h3>
+                <p>Loading...</p>
+            </div>
+            <a href="https://discord.gg/DPWY2jWeHR" class="discord-link">Join our Discord server at ZynthWare</a>
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2024 FigmaToGFX | Created by zynth</p>
+        <p>&copy; 2024 FigmaToGFX | Created by ZynthRodak</p>
     </footer>
+
+    <script>
+        fetch('https://api.github.com/repos/Zynth9999/FigmaToGFX/commits')
+            .then(response => response.json())
+            .then(data => {
+                const latestCommit = data[0];
+                const commitInfo = {
+                    sha: latestCommit.sha,
+                    date: new Date(latestCommit.commit.author.date).toDateString(),
+                    message: latestCommit.commit.message,
+                    author: latestCommit.commit.author.name
+                };
+
+                const latestCommitElement = document.getElementById('latest-commit');
+                latestCommitElement.innerHTML = `
+                    <h3>Latest Commit</h3>
+                    <p>SHA: <strong>${commitInfo.sha}</strong></p>
+                    <p>Date: <strong>${commitInfo.date}</strong></p>
+                    <p>Message: <strong>${commitInfo.message}</strong></p>
+                    <p>Author: <strong>${commitInfo.author}</strong></p>
+                `;
+            })
+            .catch(error => {
+                console.error('Error fetching latest commit:', error);
+                const latestCommitElement = document.getElementById('latest-commit');
+                latestCommitElement.innerHTML = '<p>Error fetching latest commit information</p>';
+            });
+    </script>
 </body>
 </html>
