@@ -12,7 +12,11 @@
 | bb_spi_lcd | Semi-supported  |
 | Other libraries | Not supported❌  |
 
-If you would like for me to try and add support to other libraries HMU on discord!
+### TFT_eSPI:
+The library is very similar to AdafruitGFX, that's why i said its Mostly supported.
+If there are any problems please HMU on discord or join the ZynthWare server.
+
+If you would like for me to try and add support to other libraries HMU on discord or join the ZynthWare server!
 
 # Object support:
 | Type  | Support |
@@ -26,3 +30,6 @@ If you would like for me to try and add support to other libraries HMU on discor
 
 ### But what do you mean Semi-supported spheres?
 Well you can make a square then round it out!
+
+### Aren't arrow just lines with... more lines?
+Yes, but it would be pretty hard calculating the arrows lines, wouldn't it?
