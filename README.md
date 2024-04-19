@@ -9,7 +9,7 @@
 ### - Turn the object into a touchable button!
 ### - It automatically adds the color using tft.color565().
 ### - Planned support for automatically putting rounded corners in the code it spits out!
-### - Planned theme support (who even uses light theme ?)
+### - ~~Planned theme support (who even uses light theme ?)~~ ONLY DARK THEME BECAUSE I SAY SO (LIGHT IS OVERRATED)
 ![Img1](img1.jpg)
 
 # Library support:
