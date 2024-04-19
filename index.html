@@ -1,104 +1,175 @@
-<!DOCTYPE html>
-<html>
 <head>
-    <meta charset="UTF-8" />
-    <title>FigmaToGFX</title>
-    <style>
-      /* MADE BY ZYNTH WITH <3 */
-  input {
-      width: 100%;
-      padding: 12px 20px;
-      margin: 8px 0;
-      display: inline-block;
-      border: 3px solid hsl(0, 0%, 100%);
-      border-radius: 4px;
-      box-sizing: border-box;
-      font-size: 16px;
-      color: hsl(0, 0%, 100%);
-      background-color: rgb(0, 0, 0);
-  }
-  body{
-    color: white;
-    font-family: 'Roboto', sans-serif;
-    background-color: rgb(43, 43, 43);
-  }
-  #sbmt {
+  <style>
+    /* MADE BY ZYNTH WITH <3 */
+input {
     width: 100%;
-    background-color: #49d84e;
-    color: black;
-    padding: 14px 20px;
+    padding: 12px 20px;
     margin: 8px 0;
+    display: inline-block;
     border: 3px solid hsl(0, 0%, 100%);
-    border-radius: 2px;
-    cursor: pointer;
+    border-radius: 4px;
+    box-sizing: border-box;
     font-size: 16px;
-    transition: ease-in-out 0.3s;
-  }
-  #sbmt:hover {
-    width: 100%;
-    size-adjust: 10px;
-    background-color: #406441;
-    color: rgb(255, 255, 255);
-    padding: 14px 20px;
+    color: hsl(0, 0%, 100%);
+    background-color: rgb(0, 0, 0);
+}
+body{
+  color: white;
+  font-family: 'Roboto', sans-serif;
+  background-color: rgb(43, 43, 43);
+}
+#sbmt {
+  width: 100%;
+  background-color: #49d84e;
+  color: black;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: 3px solid hsl(0, 0%, 100%);
+  border-radius: 2px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: ease-in-out 0.3s;
+}
+#sbmt:hover {
+  width: 100%;
+  size-adjust: 10px;
+  background-color: #406441;
+  color: rgb(255, 255, 255);
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: 3px solid hsl(0, 0%, 100%);
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: ease-in-out 0.3s;
+
+}
+#cancel {
+  width: 100%;
+  background-color: #d84949;
+  color: black;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: 3px solid hsl(0, 0%, 100%);
+  border-radius: 2px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: ease-in-out 0.3s;
+}
+#cancel:hover {
+  width: 100%;
+  size-adjust: 10px;
+  background-color: #644040;
+  color: rgb(255, 255, 255);
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: 3px solid hsl(0, 0%, 100%);
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: ease-in-out 0.3s;
+
+}
+LABEL.indented-checkbox-text
+{
+margin-left: 2em;
+display: block;
+position: relative;
+margin-top: -1.4em;  /* make this margin match whatever your line-height is */
+line-height: 1.4em;  /* can be set here, or elsewehere */
+}
+select {
+
     margin: 8px 0;
+    display: inline-block;
+    background-color: darkgray;
     border: 3px solid hsl(0, 0%, 100%);
-    border-radius: 6px;
-    cursor: pointer;
+    border-radius: 4px;
+    box-sizing: border-box;
     font-size: 16px;
-    transition: ease-in-out 0.3s;
-  
-  }
-  #cancel {
-    width: 100%;
-    background-color: #d84949;
-    color: black;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: 3px solid hsl(0, 0%, 100%);
-    border-radius: 2px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: ease-in-out 0.3s;
-  }
-  #cancel:hover {
-    width: 100%;
-    size-adjust: 10px;
-    background-color: #644040;
-    color: rgb(255, 255, 255);
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: 3px solid hsl(0, 0%, 100%);
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: ease-in-out 0.3s;
-  
-  }
-  LABEL.indented-checkbox-text
-  {
-  margin-left: 2em;
-  display: block;
-  position: relative;
-  margin-top: -1.4em;  /* make this margin match whatever your line-height is */
-  line-height: 1.4em;  /* can be set here, or elsewehere */
-  }
-  select {
-  
-      margin: 8px 0;
-      display: inline-block;
-      background-color: darkgray;
-      border: 3px solid hsl(0, 0%, 100%);
-      border-radius: 4px;
-      box-sizing: border-box;
-      font-size: 16px;
-      color: hsl(0, 0%, 0%);
-  }
-    </style>
+    color: hsl(0, 0%, 0%);
+}
+  </style>
+
 </head>
-<body>
-    <h1>FigmaToGFX</h1>
-    <h2>By Zynth</h2>
-    <h3>The best FREE Figma To TFT code converter on earth!</h3>
-    <button id="sbmt">Check it out!</button>
-</body>
-</html>
+<h2>Figma To Adafruit</h2>
+
+  <button id="sbmt">Create</button>
+  <label for="isbtn">Is button:</label>
+  
+  <select name="isbtn" id="isbtn">
+    <option value="false">No</option>
+    <option value="true">Yes</option>
+
+    
+  
+  
+
+  </select>
+  <label for="lib">Library:</label>
+  <select name="lib" id="lib">
+    <option value="bb">bb_spi_lcd</option>
+    <option value="espi">TFT_eSPI</option>
+    <option value="GFX">Adafruit_GFX</option>
+  </select>
+  <br></br>
+  <label for="cmd">Action:</label>
+  <input id="cmd"></input>
+  
+  <p id="wholecode" style="background-color: black; color: white; font-size: 16px; padding: 14px; margin: 8px 0; border: 3px solid hsl(0, 0%, 100%); border-radius: 4px;"></p>
+  
+  <button id="cancel">Clear</button>
+
+  <script>
+
+    whole = "";
+    document.getElementById('sbmt').addEventListener('click', () => {
+      parent.postMessage({ pluginMessage: { type: 'getProperties' } }, '*');
+      
+    });
+    document.getElementById('cancel').addEventListener('click', () => {
+      document.getElementById('wholecode').textContent = "";
+      whole = "";
+    });
+
+    // Listen for messages from the plugin
+    onmessage = event => {
+      
+      let formattedCodebit = "";
+      const message = event.data.pluginMessage;
+      if (message.type === 'properties') {
+        selectElement = 
+                  document.querySelector('#isbtn');
+            output = selectElement.value;
+            if(output == "true"){
+              act = document.querySelector('#cmd').value;
+              whole = whole.concat(`if(tx >= ${message.x} && tx <= ${message.x}+${message.width} && ty >= ${message.y} && ty <= ${message.y}+${message.height}){/*Code:*/${act}}\n`);
+            }
+            elm1 = 
+                  document.querySelector('#lib');
+            lib = elm1.value;
+            if(lib === "bb"){
+              formattedCodebit = `tft.fillRect(${message.x}, ${message.y}, ${message.width}, ${message.height}, tft.color565(${Math.round(message.r)}, ${Math.round(message.g)}, ${Math.round(message.b)}));`;
+            }
+            if(lib === "espi"){
+              formattedCodebit = `tft.filRoundRect(${message.x}, ${message.y}, ${message.width}, ${message.height},${message.cornerRadius}, tft.color565(${Math.round(message.r)}, ${Math.round(message.g)}, ${Math.round(message.b)}));`;
+            }
+            if(lib === "GFX"){
+              formattedCodebit = `tft.fillRoundRect(${message.x}, ${message.y}, ${message.width}, ${message.height},${message.cornerRadius}, tft.color565(${Math.round(message.r)}, ${Math.round(message.g)}, ${Math.round(message.b)}));`;
+            }
+            if(lib !== ""){
+              whole = whole.concat(formattedCodebit);
+            }
+
+            
+        // Format the codebit stri
+      
+        // Populate the codebit span with the formatted string
+        
+        // Update other span elements with the received values
+        document.getElementById('wholecode').textContent = whole;
+      } else if (message.type === 'error') {
+        alert(message.message);
+      }
+    };
+  </script>
