@@ -1,21 +1,24 @@
+###### STOP 1-------------
 # HOW TO INSTALL THE PLUGIN 
-<style>h1,h2,h3,h4 { border-bottom: 0; } </style>
 ## There are 2 ways:
 ### - Get it from the Figma Community Plugin section (SOON!)
 ### - Put it in the figma directory
+###### STOP 2-------------
 # WHAT YOU NEED TO MAKE IT WORK:
-## LATEST RELEASE OF FTGTOOLS 
+### LATEST RELEASE OF FTGTOOLS 
 [FTGTOOLS](https://github.com/Zynth9999/FigmaToGFX/releases/download/v1.1.6/ftgtools.h)
-## YOUR TOUCH VARIABLES TO BE CALLED TX AND TY FOR X AND Y
-## YOUR DISPLAY INSTANCE TO BE CALLED TFT, NOT LCD< NOT DISPLAY
+### YOUR TOUCH VARIABLES TO BE CALLED TX AND TY FOR X AND Y
+### YOUR DISPLAY INSTANCE TO BE CALLED TFT, NOT LCD< NOT DISPLAY
 
 ## YOURE ALL SET! PICK YOUR PATH \/
-
+###### STOP 3-------------
 # Way 1
 
 ## Click this link: 
 [Soon!](installation.md)
+### Then scroll down to ***STOP 5***
 
+###### STOP 4-------------
 # Way 2
 
 ## 1. Navigate to your Figma folder
@@ -23,6 +26,12 @@
 ### Then open the folder that says app-XXX.XX.X
 ### Download the latest release
 ### unzip the download into the app-XXX.XX.X folder
-### Reload figma and enjoy!
+### Reload Figma
+###### STOP 5-------------
+# INSTALLING IN YOUR ARDUINO PROJECT:
+### Ge the latest FTGTOOLS
+[FTGTOOLS](https://github.com/Zynth9999/FigmaToGFX/releases/download/v1.1.6/ftgtools.h)
+### throw it in the same folder as your Arduino script
+### Compile and enjoy!
 
 # The plugin should now be under: Figma button > plugins > Development
