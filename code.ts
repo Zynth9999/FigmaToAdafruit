@@ -11,15 +11,11 @@ figma.ui.onmessage = msg => {
     const selection = figma.currentPage.selection;
     const selectedNode = selection[0];
     if (selection.length > 0) {
-      const selectedObject = selection[0];
-
       if (selectedNode.type === 'RECTANGLE') {
         const selectionColors = figma.getSelectionColors();
         let r = defaultRed;
         let g = defaultGreen;
         let b = defaultBlue;
-        
-        cornerRadius = selectedNode.cornerRadius;
 
         if (selectionColors !== null) {
           const paints = selectionColors.paints;
@@ -32,23 +28,37 @@ figma.ui.onmessage = msg => {
           });
         }
 
-        const x = selectedObject.x;
-        const y = selectedObject.y;
-        const width = selectedObject.width;
-        const height = selectedObject.height;
+        cornerRadius = selectedNode.cornerRadius;
 
-        figma.ui.postMessage({ type: 'properties', x, y, width, height, r, g, b, cornerRadius });
+        const x = selectedNode.x;
+        const y = selectedNode.y;
+        const width = selectedNode.width;
+        const height = selectedNode.height;
+
+        figma.ui.postMessage({ type: 'properties', x, y, width, height, r, g, b, cornerRadius, objtype: 'RECTANGLE' });
       } else if (selectedNode.type === 'TEXT') {
-        const fontSize = selectedNode.fontSize / 7; // Divide by 7 and round
-        const textColor = selectedNode.fills[0].color;
-        const r = textColor.r * 255;
-        const g = textColor.g * 255;
-        const b = textColor.b * 255;
-        const text = selectedNode.characters;
-        const x = selectedObject.x;
-        const y = selectedObject.y;
+        const selectionColors = figma.getSelectionColors();
+        let r = defaultRed;
+        let g = defaultGreen;
+        let b = defaultBlue;
 
-        figma.ui.postMessage({ type: 'textProperties', x, y, fontSize, r, g, b, text });
+        if (selectionColors !== null) {
+          const paints = selectionColors.paints;
+          paints.forEach(paint => {
+            if (paint.type === 'SOLID') {
+              r = paint.color.r * 255;
+              g = paint.color.g * 255;
+              b = paint.color.b * 255;
+            }
+          });
+        }
+
+        const fontSize = Math.round(Number(selectedNode.fontSize) / 7); // Explicitly cast to number and round
+        const text = selectedNode.characters;
+        const x = selectedNode.x;
+        const y = selectedNode.y;
+
+        figma.ui.postMessage({ type: 'textProperties', x, y, fontSize, r, g, b, text, objtype: 'TEXT' });
       } else {
         figma.ui.postMessage({ type: 'error', message: 'Selected object type not supported!' });
       }

@@ -12,36 +12,52 @@ figma.ui.onmessage = msg => {
         const selection = figma.currentPage.selection;
         const selectedNode = selection[0];
         if (selection.length > 0) {
-            const selectedObject = selection[0];
-            // Get color properties
-            const selectionColors = figma.getSelectionColors();
-            let r = defaultRed;
-            let g = defaultGreen;
-            let b = defaultBlue;
             if (selectedNode.type === 'RECTANGLE') {
-                // Access the cornerRadius property
+                const selectionColors = figma.getSelectionColors();
+                let r = defaultRed;
+                let g = defaultGreen;
+                let b = defaultBlue;
+                if (selectionColors !== null) {
+                    const paints = selectionColors.paints;
+                    paints.forEach(paint => {
+                        if (paint.type === 'SOLID') {
+                            r = paint.color.r * 255;
+                            g = paint.color.g * 255;
+                            b = paint.color.b * 255;
+                        }
+                    });
+                }
                 cornerRadius = selectedNode.cornerRadius;
-                // Now you can work with the cornerRadius
+                const x = selectedNode.x;
+                const y = selectedNode.y;
+                const width = selectedNode.width;
+                const height = selectedNode.height;
+                figma.ui.postMessage({ type: 'properties', x, y, width, height, r, g, b, cornerRadius, objtype: 'RECTANGLE' });
             }
-            if (selectionColors !== null) {
-                const paints = selectionColors.paints;
-                // Iterate over each paint in the selection
-                paints.forEach(paint => {
-                    // Check if the paint is of type "SOLID" (which contains RGB values)
-                    if (paint.type === 'SOLID') {
-                        // Extract RGB values
-                        r = paint.color.r * 255; // Multiply by 255 to get value in [0, 255] range
-                        g = paint.color.g * 255;
-                        b = paint.color.b * 255;
-                    }
-                });
+            else if (selectedNode.type === 'TEXT') {
+                const selectionColors = figma.getSelectionColors();
+                let r = defaultRed;
+                let g = defaultGreen;
+                let b = defaultBlue;
+                if (selectionColors !== null) {
+                    const paints = selectionColors.paints;
+                    paints.forEach(paint => {
+                        if (paint.type === 'SOLID') {
+                            r = paint.color.r * 255;
+                            g = paint.color.g * 255;
+                            b = paint.color.b * 255;
+                        }
+                    });
+                }
+                const fontSize = Math.round(Number(selectedNode.fontSize) / 7); // Explicitly cast to number and round
+                const text = selectedNode.characters;
+                const x = selectedNode.x;
+                const y = selectedNode.y;
+                figma.ui.postMessage({ type: 'textProperties', x, y, fontSize, r, g, b, text, objtype: 'TEXT' });
             }
-            // Get position and size properties
-            const x = selectedObject.x;
-            const y = selectedObject.y;
-            const width = selectedObject.width;
-            const height = selectedObject.height;
-            figma.ui.postMessage({ type: 'properties', x, y, width, height, r, g, b, cornerRadius });
+            else {
+                figma.ui.postMessage({ type: 'error', message: 'Selected object type not supported!' });
+            }
         }
         else {
             figma.ui.postMessage({ type: 'error', message: 'You need to select an object!' });

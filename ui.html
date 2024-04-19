@@ -121,55 +121,52 @@ select {
   <button id="cancel">Clear</button>
 
   <script>
-
     whole = "";
     document.getElementById('sbmt').addEventListener('click', () => {
       parent.postMessage({ pluginMessage: { type: 'getProperties' } }, '*');
-      
     });
     document.getElementById('cancel').addEventListener('click', () => {
       document.getElementById('wholecode').textContent = "";
       whole = "";
     });
-
+  
     // Listen for messages from the plugin
     onmessage = event => {
-      
       let formattedCodebit = "";
       const message = event.data.pluginMessage;
-      if (message.type === 'properties') {
-        selectElement = 
-                  document.querySelector('#isbtn');
-            output = selectElement.value;
-            if(output == "true"){
-              act = document.querySelector('#cmd').value;
-              whole = whole.concat(`if(tx >= ${message.x} && tx <= ${message.x}+${message.width} && ty >= ${message.y} && ty <= ${message.y}+${message.height}){/*Code:*/${act}}\n`);
-            }
-            elm1 = 
-                  document.querySelector('#lib');
-            lib = elm1.value;
-            if(lib === "bb"){
-              formattedCodebit = `tft.fillRect(${message.x}, ${message.y}, ${message.width}, ${message.height}, tft.color565(${Math.round(message.r)}, ${Math.round(message.g)}, ${Math.round(message.b)}));`;
-            }
-            if(lib === "espi"){
-              formattedCodebit = `tft.filRoundRect(${message.x}, ${message.y}, ${message.width}, ${message.height},${message.cornerRadius}, tft.color565(${Math.round(message.r)}, ${Math.round(message.g)}, ${Math.round(message.b)}));`;
-            }
-            if(lib === "GFX"){
-              formattedCodebit = `tft.fillRoundRect(${message.x}, ${message.y}, ${message.width}, ${message.height},${message.cornerRadius}, tft.color565(${Math.round(message.r)}, ${Math.round(message.g)}, ${Math.round(message.b)}));`;
-            }
-            if(lib !== ""){
-              whole = whole.concat(formattedCodebit);
-            }
-
-            
-        // Format the codebit stri
-      
-        // Populate the codebit span with the formatted string
+      if (message.type === 'properties' || message.type === 'textProperties') {
+        let objtype = message.type === 'properties' ? 'RECTANGLE' : 'TEXT'; // Determine object type
         
-        // Update other span elements with the received values
+        selectElement = document.querySelector('#isbtn');
+        output = selectElement.value;
+        if (output == "true" && objtype === 'RECTANGLE') { // Check if it's a button and it's a rectangle
+          act = document.querySelector('#cmd').value;
+          whole = whole.concat(`if(tx >= ${message.x} && tx <= ${message.x}+${message.width} && ty >= ${message.y} && ty <= ${message.y}+${message.height}){/*Code:*/${act}}\n`);
+        }
+        elm1 = document.querySelector('#lib');
+        lib = elm1.value;
+        if (lib === "bb" && objtype === 'RECTANGLE') {
+          formattedCodebit = `tft.fillRect(${message.x}, ${message.y}, ${message.width}, ${message.height}, tft.color565(${Math.round(message.r)}, ${Math.round(message.g)}, ${Math.round(message.b)}));`;
+        } else if (lib === "espi" && objtype === 'RECTANGLE') {
+          formattedCodebit = `tft.filRoundRect(${message.x}, ${message.y}, ${message.width}, ${message.height},${message.cornerRadius}, tft.color565(${Math.round(message.r)}, ${Math.round(message.g)}, ${Math.round(message.b)}));`;
+        } else if (lib === "GFX" && objtype === 'RECTANGLE') {
+          formattedCodebit = `tft.fillRoundRect(${message.x}, ${message.y}, ${message.width}, ${message.height},${message.cornerRadius}, tft.color565(${Math.round(message.r)}, ${Math.round(message.g)}, ${Math.round(message.b)}));`;
+        }
+  
+        if (lib !== "" && objtype === 'RECTANGLE') {
+          whole = whole.concat(formattedCodebit);
+        } else if (objtype === 'TEXT') {
+          whole = whole.concat(`tft.setSetcursor(${message.x},${message.y});\n`);
+          whole = whole.concat(`tft.setTextSize(${message.fontSize});\n`);
+          whole = whole.concat(`tft.setTextColor(tft.color565(${Math.round(message.r)}, ${Math.round(message.g)}, ${Math.round(message.b)}));\n`);
+          whole = whole.concat(`tft.println("${message.text}");\n`);
+        }
+  
+        // Update the whole code
         document.getElementById('wholecode').textContent = whole;
       } else if (message.type === 'error') {
         alert(message.message);
       }
     };
   </script>
+  
