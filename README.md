@@ -9,7 +9,7 @@
 ### - Supports multiple libraries!
 ### - Turn the object into a touchable button!
 ### - It automatically adds the color using tft.color565().
-### - Planned support for automatically putting rounded corners in the code it spits out!
+### - Automatically spit out the corner radius into the line!
 ### - ~~Planned theme support (who even uses light theme ?)~~ ONLY DARK THEME BECAUSE I SAY SO (LIGHT IS OVERRATED)
 ![Img1](img1.jpg)
 
@@ -17,7 +17,7 @@
 | Library  | Support |
 | ------------- | ------------- |
 | TFT_eSPI  | Mostly-supported ✅  |
-| AdafruitGFX | Supported ✅  |
+| AdafruitGFX | 90% Supported ✅  |
 | bb_spi_lcd | Semi-supported  |
 | LVGL | No plans for support❌  |
 | Other libraries | Not supported❌  |
@@ -34,7 +34,7 @@ If you would like for me to try and add support to other libraries HMU on discor
 # Object support:
 | Type  | Support |
 | ------------- | ------------- |
-| Rectangle  | Supported ✅  |
+| Rectangle  | 100% Supported ✅  |
 | Line | Planned support⌚  |
 | Sphere | Semi-supported  |
 | Polygon | No plans for support❌  |
