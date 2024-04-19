@@ -8,7 +8,10 @@
 | ------------- | ------------- |
 | Rectangle  | Supported ✅  |
 | Elipse | Not supported❌  |
-| Sphere | Semi-supported 1/2  |
+| Sphere | Semi-supported  |
 | Polygon | Not supported❌  |
 | Star   | Not supported❌  |
 | Arrow  | Not supported❌  |
+
+### But what do you mean Semi-supported spheres?
+Well you can make a square then round it out!
