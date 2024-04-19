@@ -4,7 +4,7 @@
 ### - Turn the object into a touchable button!
 ### - It automatically adds the color using tft.color565().
 
-#Library support:
+# Library support:
 | Library  | Support |
 | ------------- | ------------- |
 | TFT_eSPI  | Mostly-supported ✅  |
@@ -13,7 +13,7 @@
 | Other libraries | Not supported❌  |
 If you would like for me to try and add support to other libraries HMU on discord!
 
-#Object support:
+# Object support:
 | Type  | Support |
 | ------------- | ------------- |
 | Rectangle  | Supported ✅  |
