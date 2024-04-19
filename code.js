@@ -7,6 +7,12 @@ const defaultBlue = 0;
 // MADE BY ZYNTH WITH <3
 // Reload
 let cornerRadius;
+figma.on("selectionchange", () => {
+    const selection = figma.currentPage.selection;
+    const selectedNode = selection[0];
+    const node = selectedNode.type;
+    figma.ui.postMessage({ type: 'selectionchange', node });
+});
 figma.ui.onmessage = msg => {
     if (msg.type === 'getProperties') {
         const selection = figma.currentPage.selection;

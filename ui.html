@@ -113,7 +113,15 @@ select {
     <option value="GFX">Adafruit_GFX</option>
   </select>
   <br></br>
-  <label for="cmd">Action:</label>
+  <div id="texttools" style="display: block;">
+    <label for="center">Center text: </label>
+      <select name="center" id="center">
+        <option value="y">Yes</option>
+        <option value="n">No</option>
+      </select>
+    <br></br>
+  </div>
+    <label for="cmd">Action:</label>
   <input id="cmd"></input>
   
   <p id="wholecode" style="background-color: black; color: white; font-size: 16px; padding: 14px; margin: 8px 0; border: 3px solid hsl(0, 0%, 100%); border-radius: 4px;"></p>
@@ -136,37 +144,64 @@ select {
       const message = event.data.pluginMessage;
       if (message.type === 'properties' || message.type === 'textProperties') {
         let objtype = message.type === 'properties' ? 'RECTANGLE' : 'TEXT'; // Determine object type
-        
         selectElement = document.querySelector('#isbtn');
         output = selectElement.value;
-        if (output == "true" && objtype === 'RECTANGLE') { // Check if it's a button and it's a rectangle
+        if (output == "true" && objtype == 'RECTANGLE') { // Check if it's a button and it's a rectangle
           act = document.querySelector('#cmd').value;
           whole = whole.concat(`if(tx >= ${message.x} && tx <= ${message.x}+${message.width} && ty >= ${message.y} && ty <= ${message.y}+${message.height}){/*Code:*/${act}}\n`);
         }
         elm1 = document.querySelector('#lib');
         lib = elm1.value;
-        if (lib === "bb" && objtype === 'RECTANGLE') {
+        if (lib == "bb" && objtype == 'RECTANGLE') {
+          
           formattedCodebit = `tft.fillRect(${message.x}, ${message.y}, ${message.width}, ${message.height}, tft.color565(${Math.round(message.r)}, ${Math.round(message.g)}, ${Math.round(message.b)}));`;
+          whole = whole.concat(formattedCodebit);
+          
         } else if (lib === "espi" && objtype === 'RECTANGLE') {
+
+          
           formattedCodebit = `tft.filRoundRect(${message.x}, ${message.y}, ${message.width}, ${message.height},${message.cornerRadius}, tft.color565(${Math.round(message.r)}, ${Math.round(message.g)}, ${Math.round(message.b)}));`;
+          whole = whole.concat(formattedCodebit);
+
         } else if (lib === "GFX" && objtype === 'RECTANGLE') {
+   
+          
           formattedCodebit = `tft.fillRoundRect(${message.x}, ${message.y}, ${message.width}, ${message.height},${message.cornerRadius}, tft.color565(${Math.round(message.r)}, ${Math.round(message.g)}, ${Math.round(message.b)}));`;
+          whole = whole.concat(formattedCodebit);
+
         }
   
-        if (lib !== "" && objtype === 'RECTANGLE') {
-          whole = whole.concat(formattedCodebit);
-        } else if (objtype === 'TEXT') {
+         else if (objtype == 'TEXT') {
+          elm2 = document.querySelector('#center');
+          ctr = elm2.value;
+          if (ctr === "y") {
+            whole = whole.concat(`tft.setSetcursor(${message.x},${message.y});\n`);
+            whole = whole.concat(`tft.setTextSize(${message.fontSize});\n`);
+            whole = whole.concat(`tft.setTextColor(tft.color565(${Math.round(message.r)}, ${Math.round(message.g)}, ${Math.round(message.b)}));\n`);
+            whole = whole.concat(`drawCenteredText("${message.text}",${message.y});\n`);
+          
+        } else {
           whole = whole.concat(`tft.setSetcursor(${message.x},${message.y});\n`);
           whole = whole.concat(`tft.setTextSize(${message.fontSize});\n`);
           whole = whole.concat(`tft.setTextColor(tft.color565(${Math.round(message.r)}, ${Math.round(message.g)}, ${Math.round(message.b)}));\n`);
-          whole = whole.concat(`tft.println("${message.text}");\n`);
+          whole = whole.concat(`tft.print("${message.text}");\n`);
         }
   
         // Update the whole code
+      }
+
         document.getElementById('wholecode').textContent = whole;
       } else if (message.type === 'error') {
         alert(message.message);
+      } else if (message.type === 'selectionchange') {
+        const msg = event.data.pluginMessage;
+        if (msg.node === 'TEXT') {
+          document.getElementById('texttools').style.display = 'block';
+        } else {
+          document.getElementById('texttools').style.display = 'none';
+        }
       }
-    };
+    }
+  ;
   </script>
   
