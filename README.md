@@ -10,6 +10,7 @@
 ### - Turn the object into a touchable button!
 ### - It automatically adds the color using tft.color565().
 ### - Automatically spit out the corner radius into the line!
+### - Text support! (Font size, color, centered/uncentered)
 ### - ~~Planned theme support (who even uses light theme ?)~~ ONLY DARK THEME BECAUSE I SAY SO (LIGHT IS OVERRATED)
 ![Img1](img1.jpg)
 
