@@ -129,6 +129,7 @@ select {
   <button id="cancel">Clear</button>
 
   <script>
+    
     whole = "";
     document.getElementById('sbmt').addEventListener('click', () => {
       parent.postMessage({ pluginMessage: { type: 'getProperties' } }, '*');
@@ -148,25 +149,25 @@ select {
         output = selectElement.value;
         if (output == "true" && objtype == 'RECTANGLE') { // Check if it's a button and it's a rectangle
           act = document.querySelector('#cmd').value;
-          whole = whole.concat(`if(tx >= ${message.x} && tx <= ${message.x}+${message.width} && ty >= ${message.y} && ty <= ${message.y}+${message.height}){/*Code:*/${act}}\n`);
+          whole = whole.concat(`if(tx >= ${message.x} && tx <= ${message.x + message.width} && ty >= ${message.y} && ty <= ${message.y + message.height}){/*Code:*/${act}}\n`);
         }
         elm1 = document.querySelector('#lib');
         lib = elm1.value;
         if (lib == "bb" && objtype == 'RECTANGLE') {
           
-          formattedCodebit = `tft.fillRect(${message.x}, ${message.y}, ${message.width}, ${message.height}, tft.color565(${Math.round(message.r)}, ${Math.round(message.g)}, ${Math.round(message.b)}));`;
+          formattedCodebit = `tft.fillRect(${message.x}, ${message.y}, ${message.width}, ${message.height}, tft.color565(${Math.round(message.r)}, ${Math.round(message.g)}, ${Math.round(message.b)}))\n;`;
           whole = whole.concat(formattedCodebit);
           
         } else if (lib === "espi" && objtype === 'RECTANGLE') {
 
           
-          formattedCodebit = `tft.filRoundRect(${message.x}, ${message.y}, ${message.width}, ${message.height},${message.cornerRadius}, tft.color565(${Math.round(message.r)}, ${Math.round(message.g)}, ${Math.round(message.b)}));`;
+          formattedCodebit = `tft.filRoundRect(${message.x}, ${message.y}, ${message.width}, ${message.height},${message.cornerRadius}, tft.color565(${Math.round(message.r)}, ${Math.round(message.g)}, ${Math.round(message.b)}))\n;`;
           whole = whole.concat(formattedCodebit);
 
         } else if (lib === "GFX" && objtype === 'RECTANGLE') {
    
           
-          formattedCodebit = `tft.fillRoundRect(${message.x}, ${message.y}, ${message.width}, ${message.height},${message.cornerRadius}, tft.color565(${Math.round(message.r)}, ${Math.round(message.g)}, ${Math.round(message.b)}));`;
+          formattedCodebit = `tft.fillRoundRect(${message.x}, ${message.y}, ${message.width}, ${message.height},${message.cornerRadius}, tft.color565(${Math.round(message.r)}, ${Math.round(message.g)}, ${Math.round(message.b)}))\n;`;
           whole = whole.concat(formattedCodebit);
 
         }
@@ -181,15 +182,15 @@ select {
             whole = whole.concat(`drawCenteredText(tft,"${message.text}",${message.y});\n`);
           
         } else {
-          whole = whole.concat(`tft.setSetcursor(${message.x},${message.y});\n`);
+          whole = whole.concat(`tft.setCursor(${message.x},${message.y});\n`);
           whole = whole.concat(`tft.setTextSize(${message.fontSize});\n`);
           whole = whole.concat(`tft.setTextColor(tft.color565(${Math.round(message.r)}, ${Math.round(message.g)}, ${Math.round(message.b)}));\n`);
           whole = whole.concat(`tft.print("${message.text}");\n`);
         }
   
-        // Update the whole code
+        // Update the whole code 
       }
-
+        
         document.getElementById('wholecode').textContent = whole;
       } else if (message.type === 'error') {
         alert(message.message);
