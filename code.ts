@@ -1,9 +1,9 @@
 figma.showUI(__html__);
-figma.ui.resize(400,500);
+figma.ui.resize(400,385);
 const defaultRed = 0;
 const defaultGreen = 0;
 const defaultBlue = 0;
-
+// MADE BY ZYNTH WITH <3
 // Reload
 figma.ui.onmessage = msg => {
   if (msg.type === 'getProperties') {

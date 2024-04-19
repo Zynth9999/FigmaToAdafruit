@@ -1,0 +1,84 @@
+/* MADE BY ZYNTH WITH <3 */
+input {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 3px solid hsl(0, 0%, 100%);
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 16px;
+    color: hsl(0, 0%, 0%);
+}
+select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    background-color: darkgray;
+    border: 3px solid hsl(0, 0%, 100%);
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 16px;
+    color: hsl(0, 0%, 0%);
+}
+#sbmt {
+  width: 100%;
+  background-color: #49d84e;
+  color: black;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: 3px solid hsl(0, 0%, 100%);
+  border-radius: 2px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: ease-in-out 0.3s;
+}
+#sbmt:hover {
+  width: 100%;
+  size-adjust: 10px;
+  background-color: #406441;
+  color: rgb(255, 255, 255);
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: 3px solid hsl(0, 0%, 100%);
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: ease-in-out 0.3s;
+
+}
+#cancel {
+  width: 100%;
+  background-color: #d84949;
+  color: black;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: 3px solid hsl(0, 0%, 100%);
+  border-radius: 2px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: ease-in-out 0.3s;
+}
+#cancel:hover {
+  width: 100%;
+  size-adjust: 10px;
+  background-color: #644040;
+  color: rgb(255, 255, 255);
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: 3px solid hsl(0, 0%, 100%);
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: ease-in-out 0.3s;
+
+}
+LABEL.indented-checkbox-text
+{
+margin-left: 2em;
+display: block;
+position: relative;
+margin-top: -1.4em;  /* make this margin match whatever your line-height is */
+line-height: 1.4em;  /* can be set here, or elsewehere */
+}

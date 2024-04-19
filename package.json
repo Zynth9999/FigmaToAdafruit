@@ -1,8 +1,9 @@
 {
   "name": "FigmaToAdafruit",
-  "version": "1.0.0",
-  "description": "Your Figma Plugin",
+  "version": "1.1.5",
+  "description": "Quick and easy way to convert Figma to Adafruit",
   "main": "code.js",
+  
   "scripts": {
     "build": "tsc -p tsconfig.json",
     "lint": "eslint --ext .ts,.tsx --ignore-pattern node_modules .",
