@@ -1,4 +1,6 @@
 # A Figma plugin to turn objects into Adafruit GFX compatible code!
+## Before you make a ton of issues check this out:
+[How to install](installation.md)
 ## List of features:
 ### -Turn objects into code obviously.
 ### - Turn the object into a touchable button!
