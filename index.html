@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>FigmaToGFX</title>
+    <style>
+        body {
+            background-color: rgb(43, 43, 43);
+            color: white;
+            font-family: 'Exo', sans-serif;
+            text-align: center;
+            padding: 20px;
+
+        }
+        .block {
+  position: relative;
+  width:25vw;
+  height:25vw;
+  background: linear-gradient(0deg, #000, #262626);
+}
+
+.shadow {
+  
+  &:before, &:after {
+    content:'';
+    position: absolute;
+    top:-2px;
+    left:-2px;
+    width:calc(100% + 4px);
+    height:calc(100% + 4px);
+    background: linear-gradient(
+      45deg, 
+      #fb0094, 
+      #0000ff, 
+      #00ff00, 
+      #ffff00, 
+      #ff0000, 
+      #fb0094, 
+      #0000ff, 
+      #00ff00, 
+      #ffff00, 
+      #ff0000
+    );
+    background-size: 400%;
+    z-index:-1;
+    animation: shadow 20s linear infinite;
+  }
+  
+  &:after {
+    top:-8px;
+    left:-8px;
+    width:calc(100% + 16px);
+    height:calc(100% + 16px);    
+    filter:blur(24px);
+    opacity:0.9;
+  }
+  
+}
+
+@keyframes shadow {
+  0% {
+    background-position: 0 0;
+  }
+  50.01% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+    </style>
+</head>
+<body>
+    <h1>FigmaToGFX</h1>
+    <h2>By Zynth</h2>
+    <h3>The best FREE Figma To TFT code converter on earth!</h3>
+    <button class="block shadow" id="sbmt">Check it out!</button>
+</body>
+</html>
