@@ -4,7 +4,7 @@ const defaultRed = 0;
 const defaultGreen = 0;
 const defaultBlue = 0;
 // MADE BY ZYNTH WITH <3
-// Reload
+// May this piece of code somehow help bring more peace into this world :>
 let cornerRadius;
 figma.on("selectionchange", () => { 
   const selection = figma.currentPage.selection;

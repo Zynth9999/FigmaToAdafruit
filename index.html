@@ -43,6 +43,11 @@
             width: 100%;
         }
 
+       
+        
+        @keyframes pulse {
+          0% { box-shadow: 0 0 0 0 var(--hover); }
+        }
         button {
             background-color: #007bff;
             color: #fff;
@@ -78,7 +83,7 @@
 <body>
     <header>
         <h1>FigmaToGFX</h1>
-        <p>Convert Figma objects into code for TFT_eSPI bb_spi_lcd or AdafruitGFX with touch support</p>
+        <p>Convert Figma objects into code for TFT_eSPI bb_spi_lcd or AdafruitGFX with touch support!</p>
     </header>
 
     <main>
@@ -95,14 +100,16 @@
         <section id="about">
             <h2>FTGTOOLS</h2>
             <p>FTGTOOLS are an "sdk" for FigmaToGFX with functions made for FTG to work properly.</p>
-            <button onclick="window.location.href='https://github.com/Zynth9999/FigmaToGFX/releases/download/v1.1.6/ftgtools.h'">Download FTGTOOLS</button>
+            <button onclick="window.location.href='https://github.com/Zynth9999/FigmaToGFX/releases/download/v1.1.6-stable/ftgtools.h'">Download FTGTOOLS</button>
             
         </section>
+
+        <footer>
+            <p>&copy; 2024 FigmaToGFX | Created by ZynthRodak</p>
+        </footer>
     </main>
 
-    <footer>
-        <p>&copy; 2024 FigmaToGFX | Created by ZynthRodak</p>
-    </footer>
+    
 
     <script>
         fetch('https://api.github.com/repos/Zynth9999/FigmaToGFX/commits')
