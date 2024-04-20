@@ -1,5 +1,5 @@
 figma.showUI(__html__);
-figma.ui.resize(400, 385);
+figma.ui.resize(400, 550);
 const defaultRed = 0;
 const defaultGreen = 0;
 const defaultBlue = 0;

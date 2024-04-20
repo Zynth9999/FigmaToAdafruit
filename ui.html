@@ -19,7 +19,7 @@ body{
   background-color: rgb(43, 43, 43);
 }
 #sbmt {
-  width: 100%;
+  width: 45%;
   background-color: #49d84e;
   color: black;
   padding: 14px 20px;
@@ -31,7 +31,7 @@ body{
   transition: ease-in-out 0.3s;
 }
 #sbmt:hover {
-  width: 100%;
+  width: 45%;
   size-adjust: 10px;
   background-color: #406441;
   color: rgb(255, 255, 255);
@@ -45,7 +45,7 @@ body{
 
 }
 #cancel {
-  width: 100%;
+  width: 45%;
   background-color: #d84949;
   color: black;
   padding: 14px 20px;
@@ -57,7 +57,7 @@ body{
   transition: ease-in-out 0.3s;
 }
 #cancel:hover {
-  width: 100%;
+  width: 45%;
   size-adjust: 10px;
   background-color: #644040;
   color: rgb(255, 255, 255);
@@ -95,6 +95,8 @@ select {
 <h2>Figma To Adafruit</h2>
 
   <button id="sbmt">Create</button>
+  <p> REMEMBER TO NAME YOUR TOUCH</p>
+  <p> VARIABLES 'ty' and 'tx' accordingly</p>
   <label for="isbtn">Is button:</label>
   
   <select name="isbtn" id="isbtn">
@@ -125,12 +127,48 @@ select {
   <input id="cmd"></input>
   
   <p id="wholecode" style="background-color: black; color: white; font-size: 16px; padding: 14px; margin: 8px 0; border: 3px solid hsl(0, 0%, 100%); border-radius: 4px;"></p>
-  
-  <button id="cancel">Clear</button>
+
+  <div style="display: flex;">
+  <span id="cancel" style="margin-right: 5px;">Clear</span>
+  <span id="sbmt"onclick="fallbackCopyTextToClipboard(whole)"style="margin-left: 5px;">Copy Code</span></div>
 
   <script>
     
     whole = "";
+    function fallbackCopyTextToClipboard(text) {
+      var textArea = document.createElement("textarea");
+      textArea.value = text;
+      
+      // Avoid scrolling to bottom
+      textArea.style.top = "0";
+      textArea.style.left = "0";
+      textArea.style.position = "fixed";
+
+      document.body.appendChild(textArea);
+      textArea.focus();
+      textArea.select();
+
+      try {
+        var successful = document.execCommand('copy');
+        var msg = successful ? 'successful' : 'unsuccessful';
+        console.log('Fallback: Copying text command was ' + msg);
+      } catch (err) {
+        console.error('Fallback: Oops, unable to copy', err);
+      }
+
+      document.body.removeChild(textArea);
+    }
+    function copyTextToClipboard(text) {
+      if (!navigator.clipboard) {
+        fallbackCopyTextToClipboard(text);
+        return;
+      }
+      navigator.clipboard.writeText(text).then(function() {
+        console.log('Async: Copying to clipboard was successful!');
+      }, function(err) {
+        console.error('Async: Could not copy text: ', err);
+      });
+    }
     document.getElementById('sbmt').addEventListener('click', () => {
       parent.postMessage({ pluginMessage: { type: 'getProperties' } }, '*');
     });
