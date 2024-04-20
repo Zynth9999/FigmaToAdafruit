@@ -3,22 +3,18 @@
 ## There are 2 ways:
 ### - Get it from the Figma Community Plugin section (SOON!)
 ### - Put it in the figma directory
-###### STOP 2-------------
 # WHAT YOU NEED TO MAKE IT WORK:
 ### LATEST RELEASE OF FTGTOOLS 
 [FTGTOOLS](https://github.com/Zynth9999/FigmaToGFX/releases/download/v1.1.6/ftgtools.h)
 ### YOUR TOUCH VARIABLES TO BE CALLED TX AND TY FOR X AND Y
 ### YOUR DISPLAY INSTANCE TO BE CALLED TFT, NOT LCD< NOT DISPLAY
 
-## YOURE ALL SET! PICK YOUR PATH \/
-###### STOP 3-------------
+## YOURE ALL SET! PICK YOUR PATH!
 # Way 1
 
 ## Click this link: 
 [Soon!](installation.md)
-### Then scroll down to ***STOP 5***
-
-###### STOP 4-------------
+### Then download FTGTOOLS and put it in your project's folder.
 # Way 2
 
 ## 1. Navigate to your Figma folder
