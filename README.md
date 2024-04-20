@@ -37,8 +37,8 @@ If you would like for me to try and add support to other libraries HMU on discor
 | ------------- | ------------- |
 | Rectangle  | 100% Supported ✅  |
 | Line | Planned support⌚  |
+| Image | Planned support⌚  |
 | Sphere | Semi-supported  |
-| Polygon | No plans for support❌  |
 | Star   | No plans for support❌  |
 | Arrow  | No plans for support❌  |
 
