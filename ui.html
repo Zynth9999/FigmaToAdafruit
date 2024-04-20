@@ -176,7 +176,7 @@ select {
           elm2 = document.querySelector('#center');
           ctr = elm2.value;
           if (ctr === "y") {
-            whole = whole.concat(`tft.setSetcursor(${message.x},${message.y});\n`);
+            whole = whole.concat(`tft.setCursor(${message.x},${message.y});\n`);
             whole = whole.concat(`tft.setTextSize(${message.fontSize});\n`);
             whole = whole.concat(`tft.setTextColor(tft.color565(${Math.round(message.r)}, ${Math.round(message.g)}, ${Math.round(message.b)}));\n`);
             whole = whole.concat(`drawCenteredText(tft,"${message.text}",${message.y});\n`);
