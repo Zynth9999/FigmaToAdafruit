@@ -37,10 +37,11 @@ If you would like for me to try and add support to other libraries HMU on discor
 | ------------- | ------------- |
 | Rectangle  | 100% Supported ✅  |
 | Line | Planned support⌚  |
+| Image | Planned support⌚  |
 | Sphere | Semi-supported  |
-| Polygon | No plans for support❌  |
+| Arrow  | Not supported❌  |
 | Star   | No plans for support❌  |
-| Arrow  | No plans for support❌  |
+
 
 ### But what do you mean Semi-supported spheres?
 Well you can make a square then round it out!
